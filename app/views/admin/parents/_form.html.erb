@@ -1,0 +1,49 @@
+<%= form_with(model: parent, local: true, url: admin_parent_path) do |form| %>
+  <% if parent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
+
+      <ul>
+        <% parent.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="forms-sample">
+    <div class="form-group">
+      <%= form.label :gender %><br>
+      <%= form.select :gender, options_for_select([['MALE', true], ['FEMALE', false]]), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupation %>
+    <%= form.text_field :occupation, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>&nbsp;
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

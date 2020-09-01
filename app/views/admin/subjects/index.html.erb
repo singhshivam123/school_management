@@ -1,0 +1,40 @@
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title"> Subject Tables </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<%= admin_subjects_path %>">Subject Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All Subjects</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Subject table</h4>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Show</th>
+                <th>Edit</th>
+                <th>Destroy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @subjects.each do |subject| %>
+              <tr>
+                <td><%= subject.name %></td>
+                <td><%= button_to "show", admin_subject_path(subject), method: :get, class: "btn btn-gradient-info btn-fw"  %></td>
+                <td><%= button_to "Edit", edit_admin_subject_path(subject), method: :get, class: "btn btn-gradient-primary btn-fw"  %></td>
+                <td><%= button_to "Destroy", admin_subject_path(subject), method: :delete, class: "btn btn-gradient-danger btn-fw", data: { confirm: 'Are you sure?' }  %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<header>
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= root_path %>">
+          <%= image_tag 'img/logo.png', alt: "logo" %>
+        </a>
+      </div>
+      <div class="navbar-collapse collapse ">
+        <ul class="nav navbar-nav ">
+          <li class="active"><%= link_to 'HOME', root_path %></li>
+          <li><%= link_to 'About Us', about_us_path %></li>
+          <li><%= link_to 'COURSES', courses_path %></li>
+          <li><%= link_to 'Contact', contact_path %></li>
+          <% if current_admin.present? %>
+            <li><%= link_to 'Admin Dashbord', admin_index_path%></li>
+          <% elsif current_student.present? %>
+            <li><%= link_to 'Student Dashbord', students_index_path%></li>
+          <% elsif current_teacher.present? %>
+            <li><%= link_to 'Teacher Dashbord', teachers_index_path%></li>
+          <% else %>
+            <li><%= link_to 'FOR ADMIN LOG IN', new_admin_session_path %></li>
+            <li><%= link_to 'FOR STUDENT LOG IN', new_student_session_path %></li>
+            <li><%= link_to 'FOR Tacher LOG IN', new_teacher_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

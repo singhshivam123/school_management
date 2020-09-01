@@ -1,0 +1,11 @@
+<%= form_with(model: subject, local: true, url: admin_subject_path) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>&nbsp;
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

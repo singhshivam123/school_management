@@ -1,0 +1,16 @@
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title"> Editing Teacher </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<%= teachers_teachers_path %>">Teacher Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit Teacher Details</li>
+      </ol>
+    </nav>
+  </div>
+
+  <%= render 'form', teacher: @teacher %>
+
+  <%= link_to 'Show', teachers_teacher_path(@teacher) %> |
+  <%= link_to 'Back', teachers_teachers_path %>
+</div>

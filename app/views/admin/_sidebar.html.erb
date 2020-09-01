@@ -1,0 +1,157 @@
+<!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item nav-profile">
+      <a class="nav-link border-bottom" data-toggle="collapse" href="#ui-profile" aria-expanded="false" aria-controls="ui-profile">
+        <div class="nav-profile-image">
+          <!-- <img src="/assets/faces/face1.jpg" alt="profile"> -->
+          <%= image_tag "faces/face1.jpg" %>
+          <span class="login-status online"></span>
+          <!--change to offline or busy as needed-->
+        </div>
+        <div class="nav-profile-text d-flex flex-column">
+          <span class="font-weight-bold mb-2"><%= current_admin.email.split('@')[0].capitalize %></span>
+        </div>&nbsp;
+        <span class="menu-title"></span>
+        <i class="menu-arrow"></i>&nbsp;
+        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+      </a>
+      <div class="collapse" id="ui-profile">
+        <ul class="nav flex-column sub-menu">
+          <!-- <li class="nav-item"> -->
+           <!-- <a class="nav-link" href="#"> -->
+            <!-- <span>P</span> -->
+            <!-- <span>Profile</span> -->
+           <!-- </a> -->
+          <!-- </li> -->
+          <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link" href="%= edit_admin_registration_path%>"> -->
+              <!-- <span>EP</span> -->
+              <!-- <span>Edit Profile</span> -->
+            <!-- </a> -->
+          <!-- </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="<%= destroy_admin_session_path%>">
+              <!-- <span>SO</span> -->
+              <span>Sing Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= admin_index_path %>">
+        <span class="menu-title">Dashboard</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-student" aria-expanded="false" aria-controls="ui-student">
+        <span class="menu-title">Students</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-account-box menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-student">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="<%= admin_students_path %>">All Students</a></li>
+          <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Students Details</a></li> -->
+          <li class="nav-item"> <a class="nav-link" href="<%= new_admin_student_path %>">Admission Form</a></li>
+          <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Students Promotion</a></li> -->
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-teacher" aria-expanded="false" aria-controls="ui-teacher">
+        <span class="menu-title">Teachers</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-contacts menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-teacher">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="<%= admin_teachers_path %>">All Teachers</a></li>
+          <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Teacher Details</a></li> -->
+          <li class="nav-item"> <a class="nav-link" href="<%= new_admin_teacher_path %>">Add Teacher</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-parents" aria-expanded="false" aria-controls="ui-parents">
+        <span class="menu-title">Parents</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-account-multiple menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-parents">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="<%= admin_parents_path %>">All Parents</a></li>
+          <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Parent Details</a></li> -->
+          <li class="nav-item"> <a class="nav-link" href="<%= new_admin_parent_path %>">Add Parent</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-class" aria-expanded="false" aria-controls="ui-class">
+        <span class="menu-title">Standard</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-airplay menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-class">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="<%= admin_standards_path %>">All Standards</a></li>
+          <li class="nav-item"> <a class="nav-link" href="<%= new_admin_standard_path %>">Add New Standard</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#ui-subject" aria-expanded="false" aria-controls="ui-subject">
+        <span class="menu-title">Subjects</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-buffer menu-icon"></i>
+      </a>
+      <div class="collapse" id="ui-subject">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="<%= admin_subjects_path %>">All Subjects</a></li>
+          <li class="nav-item"> <a class="nav-link" href="<%= new_admin_subject_path %>">Add New Subject</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item border-bottom">
+      <a class="nav-link" href="<%= admin_notice_path %>">
+        <span class="menu-title">Notice</span>
+        <i class="mdi mdi-notification-clear-all menu-icon"></i>
+      </a>
+    </li>
+    <!-- <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
+        <span class="menu-title">Sample Pages</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-medical-bag menu-icon"></i>
+      </a>
+      <div class="collapse" id="general-pages">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+          <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item sidebar-actions">
+      <span class="nav-link">
+        <div class="border-bottom">
+          <h6 class="font-weight-normal mb-3">Projects</h6>
+        </div>
+        <button class="btn btn-block btn-lg btn-gradient-primary mt-4">+ Add a project</button>
+        <div class="mt-4">
+          <div class="border-bottom">
+            <p class="text-secondary">Categories</p>
+          </div>
+          <ul class="gradient-bullet-list mt-4">
+            <li>Free</li>
+            <li>Pro</li>
+          </ul>
+        </div>
+      </span>
+    </li> -->
+  </ul>
+</nav>

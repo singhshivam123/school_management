@@ -1,0 +1,9 @@
+//= require jquery
+//= require jquery_ujs
+//= require admin_js/js/vendor.bundle.base.js
+//= require admin_js/chart/Chart.min.js
+//= require admin_js/off-canvas.js
+//= require admin_js/hoverable-collapse.js
+//= require admin_js/misc.js
+//= require admin_js/todo.js
+//= require admin_js/todolist.js

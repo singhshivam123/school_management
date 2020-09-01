@@ -1,0 +1,48 @@
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title"> Student Details </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<%= students_students_path %>">Student Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Show Student Details</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Student Details</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="text-info">First name:</p>
+              <p class="text-info">Middle name:</p>
+              <p class="text-info">Last name:</p>
+              <p class="text-info">Date of birth:</p>
+              <p class="text-info">Father name:</p>
+              <p class="text-info">Join date:</p>
+              <p class="text-info">Leaving date:</p>
+              <p class="text-info">Mobile:</p>
+              <p class="text-info">Email:</p>
+            </div>
+            <div class="col-md-6">
+              <p class="text-light bg-dark pl-1"><%= @student.first_name %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.middle_name %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.last_name %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.date_of_birth %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.father_name %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.join_date %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.leaving_date %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.mobile %></p>
+              <p class="text-light bg-dark pl-1"><%= @student.email %></p>
+            </div>
+          </div>&nbsp;
+          <div class="text-center">
+            <%= button_to "Edit", edit_students_student_path(@student), method: :get, class: "btn btn-outline-primary" %>
+            <%= button_to "Back", students_students_path, method: :get, class: "btn btn-outline-primary "  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

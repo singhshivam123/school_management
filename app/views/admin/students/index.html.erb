@@ -1,0 +1,97 @@
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title"> Student Tables </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<%= admin_students_path %>">Student Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page">All Students</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Student table</h4>
+          <div class="progress" style="background: #ffffff;">
+            <div class="progress-bar bg-primary" style="height: 3px; width: 90">
+            </div>
+          </div>
+          <%= form_tag admin_students_path, method: 'get', class: 'my-3' do %>
+          <div class="row">
+            <div class="col-sm-6 bg-white">
+              <%= text_field_tag :search, params[:search], class: 'form-control shadow-lg  bg-white rounded', placeholder: 'Type For Search', style: "border-bottom: 4px solid #da8cff;" %>
+            </div>
+            <div class="col-sm-6">
+              <%= submit_tag "search", class: 'btn btn-primary shadow-lg  rounded' %>
+            </div>
+          </div>
+          <% end %>
+
+          <div class="shadow-lg p-3 mb-5 mt-5 bg-white rounded">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead class="shadow p-3 mb-3 bg-white rounded">
+                  <tr>
+                    <th>First name</th>
+                    <th>Middle name</th>
+                    <th>Last name</th>
+                    <th>Date of birth</th>
+                    <th>Father name</th>
+                    <th>Join date</th>
+                    <th>Leaving date</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <!-- <th>Show</th>
+                    <th>Edit</th>
+                    <th>Destroy</th> -->
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @students.each do |student| %>
+                  <tr>
+                    <td><%= student.first_name %></td>
+                    <td><%= student.middle_name %></td>
+                    <td><%= student.last_name %></td>
+                    <td><%= student.date_of_birth.strftime("%m-%d-%Y") %></td>
+                    <td><%= student.father_name %></td>
+                    <td><%= student.join_date.strftime("%m-%d-%Y") %></td>
+                    <td><%= student.leaving_date.strftime("%m-%d-%Y") %></td>
+                    <td><%= student.mobile %></td>
+                    <td><%= student.email %></td>
+                    <td>
+                      <a id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                        <div>
+                          <span>
+                            ...
+                          </span>
+                        </div>
+                      </a>
+                      <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item">
+                          <%= button_to "show", admin_student_path(student), method: :get, class: "btn btn-gradient-info"  %>
+                        </a>
+                        <a class="dropdown-item">
+                          <%= button_to "Edit", edit_admin_student_path(student), method: :get, class: "btn btn-gradient-primary"  %>
+                        </a>
+                        <a class="dropdown-item">
+                          <%= button_to "Destroy", admin_student_path(student), method: :delete, class: "btn btn-gradient-danger", data: { confirm: 'Are you sure?' }  %>
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>&nbsp;
+            <%= paginate @students %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

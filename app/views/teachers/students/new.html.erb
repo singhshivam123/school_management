@@ -1,0 +1,89 @@
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title"> New Student </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<%= teachers_students_path %>">Student Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add New Student</li>
+      </ol>
+    </nav>
+  </div>
+  <%= form_with(model: @student, local: true, url: teachers_students_path ) do |form| %>
+  <% if @student.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+    <ul>
+      <% @student.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_birth %>
+    <%= form.date_field :date_of_birth, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :father_name %>
+    <%= form.text_field :father_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :join_date %>
+    <%= form.date_field :join_date, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :leaving_date %>
+    <%= form.date_field :leaving_date, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= form.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+  </div>&nbsp;
+
+
+  <div>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <% end %>
+</div>

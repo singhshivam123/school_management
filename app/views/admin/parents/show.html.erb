@@ -1,0 +1,52 @@
+<div class="content-wrapper">
+  <div class="page-header">
+    <h3 class="page-title"> Parent Details </h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<%= admin_parents_path %>">Parent Tables</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Show Parent Details</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Student Details</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="text-info">Name:</p>
+              <p class="text-info">Gender:</p>
+              <p class="text-info">Occupation:</p>
+              <p class="text-info">Address:</p>
+              <p class="text-info">Phone:</p>
+              <p class="text-info">Email:</p>
+            </div>
+            <div class="col-md-6">
+              <div style="text-align: center;">
+                <label class="form-control" style="padding-top: 9px; border: 0px; background-color: beige;">
+                  <strong><%= @parent.name %></strong>
+                </label>
+              </div>
+              <p class="text-light bg-dark pl-1">
+                <% if @parent.gender == false %>
+                  Female
+                <% elsif %>
+                  Male
+                <% end %>
+              </p>
+              <p class="text-light bg-dark pl-1"><%= @parent.occupation %></p>
+              <p class="text-light bg-dark pl-1"><%= @parent.address %></p>
+              <p class="text-light bg-dark pl-1"><%= @parent.phone %></p>
+              <p class="text-light bg-dark pl-1"><%= @parent.email %></p>
+            </div>
+          </div>&nbsp;
+          <div class="text-center">
+            <%= button_to "Edit", edit_admin_parent_path(@parent), method: :get, class: "btn btn-outline-primary btn-fw"  %>
+            <%= button_to "Back", admin_parents_path, method: :get,  class: "btn btn-outline-primary btn-fw"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
